@@ -1,0 +1,14 @@
+<div class="p-2">
+  <header>
+    <app-stepper></app-stepper>
+  </header>
+  <main>
+    <router-outlet></router-outlet>
+    <div class="relative">
+      <div id="spinner-container" class="absolute w-full h-full">
+        <div class="spinner"></div>
+      </div>
+      <img appCarImage class="w-screen" #carImg />
+    </div>
+  </main>
+</div>

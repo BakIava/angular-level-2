@@ -1,0 +1,44 @@
+
+<div class="my-2">
+    <span class="text-4xl">Step 2: Select your config and options</span>
+</div>
+<div class="flex flex-col gap-1 my-2" *ngIf="options; else LoadingOptions;">
+    <div>
+        <label>Config:</label>
+        <select
+            id="configSelect"
+            class="p-2"
+            [formControl]="configSelect">
+            <option [value]="-1">Choose...</option>
+            <option *ngFor="let config of options?.configs"
+                [value]="config.id">
+                {{ config.description }}
+            </option>
+        </select>
+    </div>
+    <ng-container *ngIf="configSelect.value !== -1">
+        <div class="pl-2 flex gap-1">
+            <span>Range:</span>
+            <span>{{ configurator.config()!.range }} miles</span>
+            <span>-</span>
+            <span>Max speed:</span>
+            <span>{{ configurator.config()!.speed }}</span>
+            <span>-</span>
+            <span>Cost:</span>
+            <span>{{ configurator.config()!.price | currency:'USD' }}</span>
+        </div>
+        <div *ngIf="options.towHitch">
+            <label>Tow hitch?</label>
+            <input id="includeTow" type="checkbox"
+                [formControl]="towHitchControl">
+        </div>
+        <div *ngIf="options.yoke">
+            <label>Yoke steering wheel?</label>
+            <input id="includeYoke" type="checkbox"
+                [formControl]="yorkControl">
+        </div>
+    </ng-container>
+</div>
+<ng-template #LoadingOptions>
+    <div class="spinner"></div>
+</ng-template>

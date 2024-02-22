@@ -1,0 +1,49 @@
+ <div class="my-2">
+    <span class="text-4xl">Step 3: Summary</span>
+</div>
+<div class="my-2">
+    <table>
+        <thead class="border-0">
+            <tr>
+                <td class="text-2xl font-bold"> Your Tesla {{
+                    configurator.model()!.description }} </td>
+            </tr>
+        </thead>
+        <tbody class="my-2 border-0">
+            <tr>
+                <td class="font-bold">
+                    {{ configurator.config()!.description }}
+                </td>
+                <td>
+                    {{ configurator.config()!.price | currency: 'USD' }}
+                </td>
+            </tr>
+            <tr>
+                <td> Range: {{ configurator.config()!.range }} miles - Max
+                    speed: {{ configurator.config()!.speed }}</td>
+            </tr>
+            <tr>
+                <td class="font-bold">
+                    {{configurator.color()!.description}}
+                </td>
+                <td>
+                    {{ configurator.color()!.price | currency: 'USD'}}
+                </td>
+            </tr>
+            <tr *ngIf="configurator.towHitch()">
+                <td class="font-bold">Tow Hitch Package</td>
+                <td>{{ 1000 | currency: 'USD' }}</td>
+            </tr>
+            <tr *ngIf="configurator.york()">
+                <td class="font-bold">Yoke steering wheel</td>
+                <td>{{ 1000 | currency: 'USD' }}</td>
+            </tr>
+        </tbody>
+        <tfoot class="border-0">
+            <tr>
+                <td class="font-bold"> TOTAL COST </td>
+                <td> {{ configurator.totalCost() | currency: 'USD'}} </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

@@ -1,0 +1,22 @@
+<div id="stepper-container">
+  <div class="stepper-item">
+    <button
+      id="step1"
+      routerLink="/model"
+      routerLinkActive="active">Step 1</button>
+  </div>
+  <div class="stepper-item">
+    <button
+      id="step2"
+      routerLink="/config"
+      routerLinkActive="active"
+      [disabled]="!configurator.step1Valid()">Step 2</button>
+  </div>
+  <div class="stepper-item">
+    <button
+      id="step3"
+      routerLink="/summary"
+      routerLinkActive="active"
+      [disabled]="!configurator.step2Valid()">Step 3</button>
+  </div>
+</div>
