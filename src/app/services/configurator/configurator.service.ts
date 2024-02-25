@@ -35,7 +35,6 @@ export class ConfiguratorService implements OnDestroy {
     });
 
     modelSubscription: Subscription;
-    configSubscription: Subscription;
 
     constructor() {
         this.modelSubscription = toObservable(this.model).subscribe(() => {
@@ -43,15 +42,9 @@ export class ConfiguratorService implements OnDestroy {
             this.towHitch.set(false);
             this.york.set(false);
         });
-
-        this.configSubscription = toObservable(this.config).subscribe(() => {
-            this.towHitch.set(false);
-            this.york.set(false);
-        });
     }
 
     ngOnDestroy(): void {
         this.modelSubscription.unsubscribe();
-        this.configSubscription.unsubscribe();
     }
 } 

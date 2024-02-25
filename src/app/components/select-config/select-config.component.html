@@ -16,28 +16,27 @@
             </option>
         </select>
     </div>
-    <ng-container *ngIf="configSelect.value !== -1">
-        <div class="pl-2 flex gap-1">
-            <span>Range:</span>
-            <span>{{ configurator.config()!.range }} miles</span>
-            <span>-</span>
-            <span>Max speed:</span>
-            <span>{{ configurator.config()!.speed }}</span>
-            <span>-</span>
-            <span>Cost:</span>
-            <span>{{ configurator.config()!.price | currency:'USD' }}</span>
-        </div>
-        <div *ngIf="options.towHitch">
-            <label>Tow hitch?</label>
-            <input id="includeTow" type="checkbox"
-                [formControl]="towHitchControl">
-        </div>
-        <div *ngIf="options.yoke">
-            <label>Yoke steering wheel?</label>
-            <input id="includeYoke" type="checkbox"
-                [formControl]="yorkControl">
-        </div>
-    </ng-container>
+    <div class="pl-2 flex gap-1"
+        *ngIf="configSelect.value !== -1 && configurator.config() !== undefined">
+        <span>Range:</span>
+        <span>{{ configurator.config()!.range }} miles</span>
+        <span>-</span>
+        <span>Max speed:</span>
+        <span>{{ configurator.config()!.speed }}</span>
+        <span>-</span>
+        <span>Cost:</span>
+        <span>{{ configurator.config()!.price | currency:'USD' }}</span>
+    </div>
+    <div *ngIf="options.towHitch">
+        <label>Tow hitch?</label>
+        <input id="includeTow" type="checkbox"
+            [formControl]="towHitchControl">
+    </div>
+    <div *ngIf="options.yoke">
+        <label>Yoke steering wheel?</label>
+        <input id="includeYoke" type="checkbox"
+            [formControl]="yorkControl">
+    </div>
 </div>
 <ng-template #LoadingOptions>
     <div class="spinner"></div>
