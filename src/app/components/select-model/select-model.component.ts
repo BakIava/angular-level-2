@@ -11,7 +11,8 @@ import { Subscription, defer, firstValueFrom, retry } from "rxjs";
     selector: 'app-select-model',
     standalone: true,
     imports: [ReactiveFormsModule, NgForOf, NgIf],
-    templateUrl: './select-model.component.html'
+    templateUrl: './select-model.component.html',
+    styleUrl: './select-model.component.scss'
 })
 export class SelectModelComponent implements OnInit, OnDestroy {
     modelSelect = new FormControl<string>('');

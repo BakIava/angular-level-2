@@ -1,9 +1,10 @@
 
-<div class="my-2">
-    <span class="text-4xl">Step 2: Select your config and options</span>
+<div class="py-2 text-center">
+    <span class="title text-4xl">Step 2: Select your Config and Options</span>
 </div>
-<div class="flex flex-col gap-1 my-2" *ngIf="options; else LoadingOptions;">
-    <div>
+<div class="flex flex-row gap-2 my-2  justify-center"
+    *ngIf="options; else LoadingOptions;">
+    <div class="select-container">
         <label>Config:</label>
         <select
             id="configSelect"
@@ -16,28 +17,34 @@
             </option>
         </select>
     </div>
-    <ng-container *ngIf="configSelect.value !== -1">
-        <div class="pl-2 flex gap-1">
-            <span>Range:</span>
-            <span>{{ configurator.config()!.range }} miles</span>
-            <span>-</span>
-            <span>Max speed:</span>
-            <span>{{ configurator.config()!.speed }}</span>
-            <span>-</span>
-            <span>Cost:</span>
-            <span>{{ configurator.config()!.price | currency:'USD' }}</span>
-        </div>
-        <div *ngIf="options.towHitch">
-            <label>Tow hitch?</label>
+    <table class="table-container"
+        *ngIf="configSelect.value !== -1 && configurator.config() !== undefined">
+        <tr>
+            <td>Range</td>
+            <td>{{ configurator.config()!.range }} miles</td>
+        </tr>
+        <tr>
+            <td>Max speed</td>
+            <td>{{ configurator.config()!.speed }} mph</td>
+        </tr>
+        <tr>
+            <td>Cost</td>
+            <td>{{ configurator.config()!.price | currency:'USD' }}</td>
+        </tr>
+    </table>
+    <div class="flex flex-col gap-1">
+        <div class="checkbox-container" *ngIf="options.towHitch">
+            <label for="includeTow" class="font-medium">Tow hitch?</label>
             <input id="includeTow" type="checkbox"
                 [formControl]="towHitchControl">
         </div>
-        <div *ngIf="options.yoke">
-            <label>Yoke steering wheel?</label>
+        <div class="checkbox-container" *ngIf="options.yoke">
+            <label for="includeYoke" class="font-medium">Yoke steering
+                wheel?</label>
             <input id="includeYoke" type="checkbox"
                 [formControl]="yorkControl">
         </div>
-    </ng-container>
+    </div>
 </div>
 <ng-template #LoadingOptions>
     <div class="spinner"></div>

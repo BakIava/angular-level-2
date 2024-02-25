@@ -1,0 +1,25 @@
+
+
+.select-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0.25rem;
+    background-color: rgb(235, 235, 235);
+    padding: 0.25rem;
+
+
+    & label {
+        color: rgb(75, 75, 75);
+        font-weight: 500;
+        padding: 0.5rem;
+    }
+
+    & select {
+        background-color: white;
+        color: rgb(75, 75, 75);
+        text-align: center;
+        font-weight: 500;
+        padding: 0.5rem;
+    }
+}

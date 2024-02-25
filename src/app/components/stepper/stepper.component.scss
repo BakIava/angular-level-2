@@ -1,20 +1,38 @@
 #stepper-container {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
     display: flex;
+    gap: 0.25rem;
+    padding: 0.25rem;
+    padding-bottom: 0.125rem;
+    border-top: 1px solid;
+    border-color: rgb(200, 200, 200);
+    box-shadow: 0 0 5px 0 rgb(200, 200, 200);
+    background-color: rgb(235, 235, 235);
 }
 
 .stepper-item {
     flex-grow: 1;
-    flex-basis: 0;
+    flex-basis: 0;    
 }
 
 button {
     width: 100%;
+    background-color: transparent;
+    border-color: transparent;
+    border-radius: 0.25rem;
+    border-width: 1px;
+    font-size: 1.25rem;
+    padding: 0.5rem;
+    color: rgb(121, 121, 121);
 
     &.active {
-        background-color: rgba(255, 255, 255, 0.11);
+        background-color: white;
+        border-color: rgb(200, 200, 200);
+        box-shadow: 0 0 5px 0 rgb(190, 190, 190);
+        color: black;
+    }
+
+    &:disabled {
+        opacity: 0.25;
+        cursor: not-allowed;
     }
 }

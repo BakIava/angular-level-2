@@ -1,4 +1,7 @@
-table {
+#summary-table {
+    border-collapse: separate; 
+    border-spacing: 0.5rem 0.125rem;
+
     & tfoot {
         flex: 0 0 100%
     }
@@ -11,8 +14,8 @@ table {
         border-bottom: 1px solid white;
     }
 
-    & td {
-        padding: 0;
-        border: 0;
-    }    
+    tbody tr td:last-child,
+    tfoot tr td:last-child {
+        text-align: end;
+    }
 }

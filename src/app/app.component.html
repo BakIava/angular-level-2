@@ -1,8 +1,5 @@
-<div class="p-2">
-  <header>
-    <app-stepper></app-stepper>
-  </header>
-  <main>
+<div class="h-full flex flex-col">
+  <main class="flex-grow">
     <router-outlet></router-outlet>
     <div class="relative">
       <div id="spinner-container" class="absolute w-full h-full">
@@ -11,4 +8,7 @@
       <img appCarImage class="w-screen" #carImg />
     </div>
   </main>
+  <div id="stepper">
+    <app-stepper></app-stepper>
+  </div>
 </div>

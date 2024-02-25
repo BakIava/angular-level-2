@@ -1,11 +1,12 @@
- <div class="my-2">
-    <span class="text-4xl">Step 1: Choose your Model and color</span>
+
+<div class="py-2 text-center">
+    <span class="title text-4xl">Step 1: Choose your Model and Color</span>
 </div>
 <div class="my-2" *ngIf="models; else LoadingModels;">
-    <div class="flex flex-row">
-        <div>
+    <div class="flex flex-row gap-1 justify-center">
+        <div class="select-container">
             <label for="modelSelect">
-                Model:
+                Model
             </label>
             <select
                 id="modelSelect"
@@ -17,9 +18,9 @@
                 </option>
             </select>
         </div>
-        <div *ngIf="colors?.length">
+        <div *ngIf="colors?.length" class="select-container">
             <label for="colorSelect">
-                Color:
+                Color
             </label>
             <select
                 id="colorSelect"

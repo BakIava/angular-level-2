@@ -1,11 +1,12 @@
- <div class="my-2">
-    <span class="text-4xl">Step 3: Summary</span>
+
+<div class="py-2 text-center">
+    <span class="title text-4xl">Step 3: Summary</span>
 </div>
-<div class="my-2">
-    <table>
+<div class="py-2 flex justify-center">
+    <table id="summary-table">
         <thead class="border-0">
             <tr>
-                <td class="text-2xl font-bold"> Your Tesla {{
+                <td class="text-2xl font-bold text-center" colspan="2"> Your Tesla {{
                     configurator.model()!.description }} </td>
             </tr>
         </thead>
@@ -19,8 +20,18 @@
                 </td>
             </tr>
             <tr>
-                <td> Range: {{ configurator.config()!.range }} miles - Max
-                    speed: {{ configurator.config()!.speed }}</td>
+                <td>
+                    <table class="table-container">
+                        <tr>
+                            <td>Range</td>
+                            <td>{{ configurator.config()!.range }} miles</td>
+                        </tr>
+                        <tr>
+                            <td>Max speed</td>
+                            <td>{{ configurator.config()!.speed }} mph</td>
+                        </tr>
+                    </table>
+                </td>
             </tr>
             <tr>
                 <td class="font-bold">
