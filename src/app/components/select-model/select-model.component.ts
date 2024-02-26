@@ -5,7 +5,7 @@ import { NgForOf, NgIf } from "@angular/common";
 import { Model } from "../../services/api/model/Model";
 import { Color } from "../../services/api/model/Color";
 import { ConfiguratorService } from "../../services/configurator/configurator.service";
-import { Subscription, defer, firstValueFrom, retry } from "rxjs";
+import { Subscription } from "rxjs";
 
 @Component({
     selector: 'app-select-model',
@@ -50,8 +50,7 @@ export class SelectModelComponent implements OnInit, OnDestroy {
 
     async loadModels() {
         try {
-            const response = await firstValueFrom(defer(() => this.api.getModels())
-                .pipe(retry({ count: 3, delay: 2000 })));
+            const response = await this.api.getModels();
             this.models = response;
         } catch (error) {
             console.log(error);

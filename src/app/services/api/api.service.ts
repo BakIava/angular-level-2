@@ -14,7 +14,7 @@ export class ApiService {
         return firstValueFrom(this.http.get<Model[]>('models'));
     }
 
-    getOptions(code: string) {
-        return firstValueFrom(this.http.get<Option>(`options/${code}`));
+    getOptions(modelCode: string) {
+        return firstValueFrom(this.http.get<Option>(`options/${modelCode}`));
     }
 }

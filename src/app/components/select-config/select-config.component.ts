@@ -4,7 +4,7 @@ import { FormControl, ReactiveFormsModule } from "@angular/forms";
 import { CurrencyPipe, NgForOf, NgIf } from "@angular/common";
 import { Option } from "../../services/api/model/Option";
 import { ConfiguratorService } from "../../services/configurator/configurator.service";
-import { Subscription, defer, firstValueFrom, map, retry } from "rxjs";
+import { Subscription, map } from "rxjs";
 
 @Component({
     selector: 'app-select-config',
@@ -50,9 +50,8 @@ export class SelectConfigComponent implements OnInit, OnDestroy {
 
     async loadConfig() {
         try {
-            const response = await firstValueFrom(defer(() => this.api.getOptions(this.configurator.model()!.code))
-                .pipe(retry({ count: 3, delay: 2000 })));
-                this.options = response;
+            const response = await this.api.getOptions(this.configurator.model()!.code);
+            this.options = response;
         } catch (error) {
             console.log(error);
         }
